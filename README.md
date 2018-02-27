@@ -1,6 +1,6 @@
 ### watsite_flexibility_scripts_data
 
-##### Step 1: run a long free MD simulation for the system (with or without ligand)
+#### Step 1: run a long free MD simulation for the system (with or without ligand)
 * for protein-ligand complex, use the openmm_prep.py to define the interactions to be restrained
 * cluster the trajectory based on BindingSite rmsd
   * ``` pymol -c getBindingSiteResi.pml``` will generate bs_res.txt, and modify cpptraj_\*.in files with correct binding site residue numbers
@@ -15,9 +15,16 @@
 ```python runCpptraj.py -f hier.4_summary_sieve10.txt c1_summary.txt ```
 ```python runCpptraj.py -f hier.4_summary_sieve10.txt c4_summary.txt ```
 
-##### Step 2: rerun short (5ns) WATsite for each subcluster from cluster
+#### Step 2: rerun short (5ns) WATsite for each subcluster from cluster
 * cluster folder created from extraction of previous long trajectory
 * run WATsite docker, and run python in the folder contains all cluster folder
 ```
 python subAll.py
 ```
+
+#### Analysis Scripts and Brief Usage
+
+
+#### Collected Data for Publication
+
+
