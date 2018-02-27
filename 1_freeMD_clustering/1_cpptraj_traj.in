@@ -1,0 +1,40 @@
+parm ../prot_fixed.prmtop [sys]
+
+parm ref.pdb [ref]
+reference ref.pdb parm [ref]
+
+trajin ../sys_md_1.nc parm [sys]
+trajin ../sys_md_2.nc parm [sys]
+trajin ../sys_md_3.nc parm [sys]
+trajin ../sys_md_4.nc parm [sys]
+trajin ../sys_md_5.nc parm [sys]
+trajin ../sys_md_6.nc parm [sys]
+trajin ../sys_md_7.nc parm [sys]
+trajin ../sys_md_8.nc parm [sys]
+trajin ../sys_md_9.nc parm [sys]
+trajin ../sys_md_10.nc parm [sys]
+trajin ../sys_md_11.nc parm [sys]
+trajin ../sys_md_12.nc parm [sys]
+trajin ../sys_md_13.nc parm [sys]
+trajin ../sys_md_14.nc parm [sys]
+trajin ../sys_md_15.nc parm [sys]
+trajin ../sys_md_16.nc parm [sys]
+trajin ../sys_md_17.nc parm [sys]
+trajin ../sys_md_18.nc parm [sys]
+trajin ../sys_md_19.nc parm [sys]
+trajin ../sys_md_20.nc parm [sys]
+trajin ../sys_md_21.nc parm [sys]
+trajin ../sys_md_22.nc parm [sys]
+trajin ../sys_md_23.nc parm [sys]
+trajin ../sys_md_24.nc parm [sys]
+trajin ../sys_md_25.nc parm [sys]
+
+autoimage mobile :WAT,HOH,SPC,NA,CL
+
+rms reference :111,112,113,114,116,130,133,139,142,143,146,157,166,188,189,202,203,231,317,322&!@H= rms_bs2.agr
+
+trajout aligned_md.nc parm [sys] 
+
+go
+quit
+
