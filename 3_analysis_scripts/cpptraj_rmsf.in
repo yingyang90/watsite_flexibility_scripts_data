@@ -1,0 +1,14 @@
+parm prot_amber.prmtop [sys]
+
+trajin mdsnaps.pdb pdb parm [sys] start 1 stop 20000 offset 10 
+
+#atomicfluct out out_rmsf.dat :36,37,40,78,81,82,83,91,92,97,120,123,135,169&!@H= calcadp adpout out_anisou.pdb
+#atomicfluct out out_rmsf_byres.dat :36,37,40,78,81,82,83,91,92,97,120,123,135,169&!@H= byres calcadp adpout out_anisou_byres.pdb
+
+rms2d nofit :36,37,40,78,81,82,83,91,92,97,120,123,135,169&!@H= rmsout full_rms2d.gnu
+
+#trajout frame_int_1000.pdb
+
+go
+quit
+
