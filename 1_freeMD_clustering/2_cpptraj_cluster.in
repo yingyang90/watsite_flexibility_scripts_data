@@ -1,0 +1,12 @@
+parm   ../prot_fixed.prmtop [sys]
+trajin aligned_md.nc parm [sys] #10000 last
+
+
+cluster C0 \
+  hieragglo epsilon 0.40 complete \
+  rms :111,112,113,114,116,130,133,139,142,143,146,157,166,188,189,202,203,231,317,322&!@H= nofit \
+  sieve 10 pairdist distance_matrix_sieve10.dat \
+  summary hier.4_summary_sieve10.txt out hier.4_frame_sieve10.txt \
+  clusterout cluster_hier clusterfmt netcdf
+
+go
