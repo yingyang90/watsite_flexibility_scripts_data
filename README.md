@@ -32,11 +32,21 @@ python subAll.py
 
 #### Collected Data for Publication
 ##### HSP90
+* 10clusters_rms2d.png RMS of BS residues between top 10 clusters after clustering
+
 ###### Restrained RMSD
 * k[0.6-4.8]rms2d.png RMS of BS residues throughout restrained simulations
 
 ###### Cluster Subcluster
 * FigureC[0,1,7].png Clustered hydration sites using ten subclusters
 
+###### Truncated
+* thermo_prop_15A_15A4ns.png Energy property comparison between 10ns and 4ns 15A truncation
+* thermo_prop_15A_full.png Energy property comparison between 15A truncation and full protein
+* thermo_prop_20A_full.png Energy property comparison between 20A truncation and full protein
+
 ##### Klebe
 * k[1.2-5]rms2d.png RMS of BS residues throughout restrained simulations
+
+#### Example
+* 
