@@ -31,8 +31,12 @@ python subAll.py
 * plotPerHSenthalpy.py script can be used to vizualize the enthalpy values of each HS through out the trajectory. Useful when there is a large range of enthalpy.
 
 #### Collected Data for Publication
-###### HSP90
+##### HSP90
+###### Restrained RMSD
 * k[0.6-4.8]rms2d.png RMS of BS residues throughout restrained simulations
 
-###### Klebe
+###### Cluster Subcluster
+* FigureC[0,1,7].png Clustered hydration sites using ten subclusters
+
+##### Klebe
 * k[1.2-5]rms2d.png RMS of BS residues throughout restrained simulations
