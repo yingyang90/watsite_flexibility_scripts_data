@@ -12,13 +12,13 @@ opt = parser.parse_args()
 
 
 if opt.cluster:
-    for i in range(10):
+    for i in range(25):
         fo = open("test.in","w")
-        fo.write("parm ../prot_fixed.prmtop [sys]\n")
+        fo.write("parm ../../prot_fixed.prmtop [sys]\n")
         fo.write("trajin cluster_hier.c%d netcdf parm [sys]\n" % i)
         fo.write("cluster C0 \\\n")
-        fo.write("hieragglo epsilon 0.4 clusters 10 complete \\\n")
-        fo.write("rms :111,112,113,114,116,130,133,139,142,143,146,157,166,188,189,202,203,231,317,322&!@H= nofit \\\n")
+        fo.write("hieragglo epsilon 0.35 clusters 10 complete \\\n")
+        fo.write("rms :111,112,113,114,116,130,133,139,142,143,146,157,166,188,189,202,203,231,318&!@H= nofit \\\n")
         fo.write("summary c%d_summary.txt out c%d_frame.txt \\\n" % (i,i))
         #fo.write("repout rep_c%d repfmt restart\n" % (i))
         fo.write("repout rep_c%d repfmt pdb\n" % i)
@@ -30,11 +30,11 @@ if opt.cluster:
 
 if opt.rms2d:
     fo = open("test.in","w")
-    fo.write("parm ../prot_fixed.prmtop [sys]\n")
-    for i in range(10):
-        for j in range(10):
+    fo.write("parm ../../prot_fixed.prmtop [sys]\n")
+    for i in range(25):
+        for j in range(5):
             fo.write("trajin rep_c%d.c%d.pdb pdb parm [sys]\n" % (i,j))
-    fo.write("rms2d nofit :111,112,113,114,116,130,133,139,142,143,146,157,166,188,189,202,203,231,317,322&!@H= rmsout rms2d_10cluster.gnu\n")
+    fo.write("rms2d nofit :111,112,113,114,116,130,133,139,142,143,146,157,166,188,189,202,203,231,318&!@H= rmsout rms2d_10cluster.gnu\n")
     fo.write("go\n")
     fo.write("quit\n")
     fo.write("\n")
@@ -62,15 +62,15 @@ if opt.frame:
         line = f2.readline()
         if line[0] != "#":
             frame_num = int(line.split()[5])
-            print(cluster_info['0'][frame_num-1])
-            frame_list.append( cluster_info['0'][frame_num-1] )
+            print(cluster_info[cluster_num][frame_num-1])
+            frame_list.append( cluster_info[cluster_num][frame_num-1] )
     f2.close()
 
 
     fo = open("cpptraj_frame.in", "w")
-    fo.write("parm ../prot_fixed.prmtop [sys]\n")
+    fo.write("parm ../../prot_fixed.prmtop [sys]\n")
     for i in range(1,26):
-        fo.write("trajin ../sys_md_%d.nc netcdf parm [sys]\n" % i)
+        fo.write("trajin ../../sys_md_%d.nc netcdf parm [sys]\n" % i)
     fo.write("trajout c%s restart parm [sys] onlyframes " % cluster_num)
     #fo.write("trajout test4.pdb pdb parm [sys] onlyframes ")#" 11445,11446")
     for j in range(10):
@@ -87,7 +87,7 @@ if opt.frame:
     for i in range(10):
         os.mkdir("subcluster_c%d" % i)
         os.system("cp ../c%s.%d subcluster_c%d/prot_amber.inpcrd" % (cluster_num, int(frame_list[i]), i)  )
-        os.system("cp ../../prot_fixed.prmtop subcluster_c%d/prot_amber.prmtop" % (i) )
+        os.system("cp ../../../prot_fixed.prmtop subcluster_c%d/prot_amber.prmtop" % (i) )
 
         os.chdir("subcluster_c%d" % i)
         os.system("ambpdb -p prot_amber.prmtop -c prot_amber.inpcrd > prot_amber.pdb")
