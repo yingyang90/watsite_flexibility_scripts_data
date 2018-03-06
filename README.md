@@ -29,6 +29,7 @@ python subAll.py
 * to test the convergence of a system, use egy_convergence.py to compare the energies from the first frames to the entire trajectory. This script can also compare energies between different simulations (restrained vs unrestrained)
 * plotHist.py can also be used to test the positional convergence of hydration site predictions and to compare against crystal waters
 * plotPerHSenthalpy.py script can be used to vizualize the enthalpy values of each HS through out the trajectory. Useful when there is a large range of enthalpy.
+* to easily generate binding site crystal waters to compare against, issue the command  ``` python findCW.py -g grid_occupancy.dx -c crystal_structure.pdb``` 
 
 #### Collected Data for Publication
 ##### HSP90
