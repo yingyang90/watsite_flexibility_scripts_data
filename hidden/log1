@@ -1,0 +1,67 @@
+--------------------------------------------------------------------------------
+    Prime MMGBSA v3.000
+[running at reduced cpu priority]
+--------------------------------------------------------------------------------
+JobId          : grapeape-0-5a9a036a
+Name           : wmmm_scoring_proper
+Program        : Prime MMGBSA v3.000
+MMshareExec    : /opt/schrodinger2017-4/mmshare-v4.0/bin/Linux-x86_64
+Host           : grapeape.mcmp.purdue.edu
+Dir            : /scratch2/yang570/klebe4amr/wmmm_scoring_proper
+HostEntry      : localhost
+JobHost        : grapeape.mcmp.purdue.edu
+JobDir         : /scratch/schrod_scratch/root/wmmm_scoring_proper
+JobMMshareExec : /opt/schrodinger2017-4/mmshare-v4.0/bin/Linux-x86_64
+Commandline    : /opt/schrodinger2017-4/prime_mmgbsa -watermap wmmm_scoring_proper_wm.mae -OVERWRITE -prime_opt OPLS_VERSION=OPLS3 wmmm_scoring_proper_pv.maegz -HOST localhost:5 -NJOBS 1 -PROJ /root/.schrodinger/tmp/tproj13133a3889 -DISP append -VIEWNAME prime_mmgbsa_gui.WmmmMmgbsaPanel -TMPLAUNCHDIR -ATTACHED
+StartTime      : 2018-03-02-21:07:38
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+
+Optimizing Protein-Ligand Complexes
+
+   Options Passed to Prime   
+   PRIME_TYPE                               REAL_MIN                      
+    ADD_MISSING_SIDE_CHAINS                  no                            
+    ENERGY_BREAKDOWN                         yes                           
+    OPLS_VERSION                             OPLS3                         
+
+
+WM/MM dG Bind:  The binding energy of the receptor and ligand as calculated by 
+        a composite score including contributions from the WaterMap score and 
+        Prime MMGBSA energy.  Please, refer to ChemMedChem 2011, 6, 1049 - 1066
+        for implementation specifics.
+
+MMGBSA dG Bind: The binding energy of the receptor and ligand as calculated by 
+         the Prime Energy, a Molecular Mechanics + Implicit Solvent Energy 
+         Function (kcals/mol)
+       = PrimeEnergy(Optimized Complex)
+        - PrimeEnergy(Optimized Free Ligand)
+        - PrimeEnergy(Optimized Free Receptor)
+
+MMGBSA dG Bind(NS):  A version of dG Bind that does not include contributions 
+         from receptor or ligand strain. (kcals/mol)
+       = PrimeEnergy(Optimized Complex)
+        - PrimeEnergy(Ligand Geometry From Optimized Complex)
+        - PrimeEnergy(Receptor Geometry From Optimized Complex)
+
+Lig Strain Energy:  A prediction of the energetic penalty due to strain between
+        the ligand in the complex and the ligand in the free state based on the
+        difference in Prime Energy (kcals/mol).
+      = PrimeEnergy(Ligand Geometry From Optimized Complex)
+       - PrimeEnergy(Optimized Free Ligand)
+
+Rec Strain Energy:  A prediction of the energetic penalty due to strain between
+        the receptor in the complex and the receptor in the free state based on
+        the difference in Prime Energy (kcals/mol).
+      = PrimeEnergy(Receptor Geometry From Optimized Complex)
+       - PrimeEnergy(Optimized Free Receptor)
+
+Logs of component Prime calculations written to wmmm_scoring_proper.Prime.log
+All Entries Succesfully Processed
+Total Time Elapsed (hours:minutes:seconds)    0:13:02
+
+
+
+
+
